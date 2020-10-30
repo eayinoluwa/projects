@@ -107,7 +107,7 @@ public class Main {
                 String financeChoice = scanner.next();
                 switch (financeChoice) {
                     case "0":
-                        System.out.println("Who are you adding today, please type their full name");
+                        System.out.println("What vendor are you adding today, please type their full name");
                         String name = scanner.next();
                         System.out.println("product name");
                         String productName = scanner.next();
@@ -232,7 +232,7 @@ public class Main {
                 switch (hrChoice) {
                     case "0":
                         System.out.println("Who are you adding today, please type their full name");
-                        String name = scanner.nextLine();
+                        String name = scanner.next();
                         System.out.println("What department. Please choice from the departments listed  below. \n"
                                 + "0 - Finance\n"
                                 + "1 - Human Resource\n"
@@ -315,7 +315,7 @@ public class Main {
                 }
 
 
-            } else if (staffn.equals("Logistics")) {
+            } else if (staffn.equals("Logistic")) {
                 System.out.println("Logistic department. Please choice from the listed option. \n"
                         + "0  --  Add inventory\n"
                         + "1  -- post shipment\n"

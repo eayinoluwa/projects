@@ -21,7 +21,6 @@ public class HRStaff extends Staff {
         staff.setStaffEmploymentStatus(staff, bool);
         String transaction = this.getName() + " altered the  employment status of  employee: "
                 + staff1.getName() + " from " + oldstatus + " to " + bool;
-        this.getTransactions().add(transaction);
     }
 
 

@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class Staff {
     private static int IDcounter= 0000;
     private int staffID;
@@ -9,16 +7,22 @@ public class Staff {
     private String department;
     private int level;
     private boolean employmentStatus;
-    private ArrayList<String> Transactions;
 
     public Staff(String name, String department, int level) {
-        this.name = name;
+        nameBuilder(name);
         this.department = department;
         this.level = level;
         IDcounter++;
         this.staffID = IDcounter;
         employmentStatus = true;
-        Transactions = new  ArrayList<String>();
+    }
+
+    public void nameBuilder(String name){
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i<name.length();i++){
+            sb.append(name.charAt(i));
+        }
+        this.name = sb.toString();
     }
 
     public Staff() {
@@ -38,10 +42,6 @@ public class Staff {
 
     public int getLevel() {
         return level;
-    }
-
-    public ArrayList<String> getTransactions() {
-        return Transactions;
     }
 
     public boolean getEmploymentStatus() {
@@ -74,5 +74,29 @@ public class Staff {
 
     public void info(){
         System.out.println("Staff name " + name + ", staff department " + department);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Staff staff = (Staff) o;
+
+        if (staffID != staff.staffID) return false;
+        if (level != staff.level) return false;
+        if (employmentStatus != staff.employmentStatus) return false;
+        if (!name.equals(staff.name)) return false;
+        return department.equals(staff.department);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = staffID;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + department.hashCode();
+        result = 31 * result + level;
+        result = 31 * result + (employmentStatus ? 1 : 0);
+        return result;
     }
 }

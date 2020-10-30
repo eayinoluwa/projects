@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class BankList {
     private String name;
@@ -59,9 +60,10 @@ public class BankList {
 
     public Bank findBank(String bankName, String accountNumber){
         for (Bank bankfound : banks) {
-            if (bankfound.getName().equals(bankName) && bankfound.getAccountNumber().equals(accountNumber)) {
-                return bankfound;
-            }
+            if (Objects.equals(bankfound.getName().toLowerCase(), bankName.toLowerCase()))
+                if (bankfound.getAccountNumber().equals(accountNumber)) {
+                    return bankfound;
+                }
         }
         return null;
     }
